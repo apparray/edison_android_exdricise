@@ -11,7 +11,14 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+//    versionCatalogs {
+//        create("libs") {
+//
+//            from(file("${rootProject.projectDir}/gradle/libs.versions.toml"))
+//        }
+//    }
 }
 rootProject.name = "edison_android_exercise"
+enableFeaturePreview("VERSION_CATALOGS")
 
 include(":app")
