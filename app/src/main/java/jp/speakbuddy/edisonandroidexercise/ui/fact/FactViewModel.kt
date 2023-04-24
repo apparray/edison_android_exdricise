@@ -1,22 +1,16 @@
 package jp.speakbuddy.edisonandroidexercise.ui.fact
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import jp.speakbuddy.edisonandroidexercise.repository.network.Fact
-import jp.speakbuddy.edisonandroidexercise.ui.fact.usecases.FactUseCases
+import jp.speakbuddy.edisonandroidexercise.network.FactServiceProvider
 import kotlinx.coroutines.runBlocking
-import javax.inject.Inject
 
-@HiltViewModel
-class FactViewModel @Inject constructor(private val factUseCases: FactUseCases) : ViewModel() {
-
-    fun updateFact(completion: () -> Unit): Fact? =
+class FactViewModel : ViewModel() {
+    fun updateFact(completion: () -> Unit): String =
         runBlocking {
             try {
-                factUseCases.getFact()
+                FactServiceProvider.provide().getFact().fact
             } catch (e: Throwable) {
-                null
-                // "something went wrong. error = ${e.message}"
+                "something went wrong. error = ${e.message}"
             }.also { completion() }
         }
 }

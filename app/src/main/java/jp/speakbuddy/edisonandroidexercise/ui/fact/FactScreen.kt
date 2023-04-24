@@ -18,9 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import jp.speakbuddy.edisonandroidexercise.repository.network.Fact
-import jp.speakbuddy.edisonandroidexercise.repository.FactRepository
-import jp.speakbuddy.edisonandroidexercise.ui.fact.usecases.FactUseCases
 import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 
 @Composable
@@ -38,12 +35,17 @@ fun FactScreen(
             alignment = Alignment.CenterVertically
         )
     ) {
-        var fact: Fact? by remember { mutableStateOf(null) }
+        var fact by remember { mutableStateOf("") }
+
         Text(
             text = "Fact",
             style = MaterialTheme.typography.titleLarge
         )
-        FactView(fact = fact)
+
+        Text(
+            text = fact,
+            style = MaterialTheme.typography.bodyLarge
+        )
 
         val onClick = {
             fact = viewModel.updateFact { print("done") }
@@ -53,63 +55,12 @@ fun FactScreen(
             Text(text = "Update fact")
         }
     }
-
-
 }
-@Composable
-private fun FactView(fact: Fact?) {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(
-            space = 16.dp,
-            alignment = Alignment.CenterVertically
-        )
-    ) {
-        MultipleCatsText(isVisible = doestContainCats(fact?.fact))
-        Text(
-            text = fact?.fact ?: "",
-            style = MaterialTheme.typography.bodyLarge
-        )
-        FactLengthText(fact?.length)
-    }
-}
-
-
-
-
-@Composable
-private fun MultipleCatsText(isVisible: Boolean) {
-    if (isVisible) {
-        Text(
-            text = "Multiple cats!",
-            style = MaterialTheme.typography.titleLarge
-        )
-    }
-}
-
-@Composable
-private fun FactLengthText(length: Int?) {
-    if (length != null && length > 100) {
-        Text(
-            text = "Length: $length",
-            style = MaterialTheme.typography.bodyLarge
-        )
-    }
-}
-
-private fun doestContainCats(st: String?): Boolean = st?.contains("cats") ?: false
 
 @Preview
 @Composable
 private fun FactScreenPreview() {
     EdisonAndroidExerciseTheme {
-        FactScreen(viewModel = FactViewModel(PreviewUseCases()))
-    }
-}
-
-// Sorry I could figure out a better solution right on the spot
-private class PreviewUseCases: FactUseCases {
-    override suspend fun getFact(): Fact {
-        return Fact("stub", 1)
+        FactScreen(viewModel = FactViewModel())
     }
 }
