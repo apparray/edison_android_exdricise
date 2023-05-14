@@ -13,6 +13,10 @@ import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_BUTTON_TAG
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_LABEL_TAG
 import jp.speakbuddy.edisonandroidexercise.MainActivity
 import jp.speakbuddy.edisonandroidexercise.R
+import jp.speakbuddy.edisonandroidexercise.ui.Mock.catsFactMock
+import jp.speakbuddy.edisonandroidexercise.ui.Mock.factMock
+import jp.speakbuddy.edisonandroidexercise.ui.Mock.longLength
+import jp.speakbuddy.edisonandroidexercise.ui.Mock.shortLength
 import jp.speakbuddy.edisonandroidexercise.ui.fact.FactView
 import jp.speakbuddy.edisonandroidexercise.ui.fact.LengthView
 import jp.speakbuddy.edisonandroidexercise.ui.fact.UpdateFactButton
@@ -22,12 +26,6 @@ import org.junit.Test
 class FactScreenTest {
     @get:Rule
     val composeTestRule = createAndroidComposeRule<MainActivity>()
-
-    private val catsFactMock =
-        "Lorem ipsum dolor sit cats, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-
-    private val factMock =
-        "Lorem ipsum dolor sit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
     @Test
     fun verifyIf_catsFactIsDisplayed() {
@@ -64,7 +62,7 @@ class FactScreenTest {
 
     @Test
     fun verifyIf_lengthLabelIsVisible() {
-        composeTestRule.activity.setContent { LengthView(length = 150) }
+        composeTestRule.activity.setContent { LengthView(length = longLength) }
 
         composeTestRule.onNodeWithTag(LENGTH_VIEW_TAG).assertTextContains(
             composeTestRule.activity.getString(
@@ -76,7 +74,7 @@ class FactScreenTest {
 
     @Test
     fun verifyIf_lengthLabelIsHidden() {
-        composeTestRule.activity.setContent { LengthView(length = 96) }
+        composeTestRule.activity.setContent { LengthView(length = shortLength) }
 
         composeTestRule.onNodeWithTag(LENGTH_VIEW_TAG).assertDoesNotExist()
     }
