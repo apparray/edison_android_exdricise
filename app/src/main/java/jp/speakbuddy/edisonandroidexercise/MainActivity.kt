@@ -8,7 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import jp.speakbuddy.edisonandroidexercise.ui.fact.FactScreen
-import jp.speakbuddy.edisonandroidexercise.ui.fact.FactViewModel
 import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FactScreen(viewModel = FactViewModel())
+                    FactScreen()
                 }
             }
         }

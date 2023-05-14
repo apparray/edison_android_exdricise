@@ -6,24 +6,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
+import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun FactScreen(
-    viewModel: FactViewModel
-) {
+fun FactScreen() {
+    val viewModel: FactViewModel = getViewModel()
+    val fact = viewModel.fact.observeAsState()
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,20 +32,18 @@ fun FactScreen(
             alignment = Alignment.CenterVertically
         )
     ) {
-        var fact by remember { mutableStateOf("") }
-
         Text(
             text = "Fact",
             style = MaterialTheme.typography.titleLarge
         )
 
         Text(
-            text = fact,
+            text = fact.value ?: "",
             style = MaterialTheme.typography.bodyLarge
         )
 
         val onClick = {
-            fact = viewModel.updateFact { print("done") }
+            viewModel.updateFact()
         }
 
         Button(onClick = onClick) {
@@ -61,6 +56,6 @@ fun FactScreen(
 @Composable
 private fun FactScreenPreview() {
     EdisonAndroidExerciseTheme {
-        FactScreen(viewModel = FactViewModel())
+        FactScreen()
     }
 }
