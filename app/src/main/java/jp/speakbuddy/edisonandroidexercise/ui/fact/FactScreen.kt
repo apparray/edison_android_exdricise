@@ -15,9 +15,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_DESCRIPTION_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_MANY_CATS_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_TITLE_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.LENGTH_VIEW_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_BUTTON_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_LABEL_TAG
 import jp.speakbuddy.edisonandroidexercise.R
 import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 import org.koin.androidx.compose.getViewModel
@@ -51,20 +58,24 @@ fun FactScreen(paddingValues: PaddingValues) {
 fun FactView(fact: String) {
     Text(
         text = stringResource(id = R.string.fact),
-        style = MaterialTheme.typography.titleLarge
+        style = MaterialTheme.typography.titleLarge,
+        modifier = Modifier.testTag(FACT_VIEW_TITLE_TAG)
     )
 
     if (fact.contains(stringResource(id = R.string.cats), ignoreCase = true)) {
         Text(
             text = stringResource(id = R.string.multiple_cats),
-            style = MaterialTheme.typography.titleMedium
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.testTag(FACT_VIEW_MANY_CATS_TAG)
         )
     }
 
     Text(
         text = fact,
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.padding(horizontal = 16.dp)
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .testTag(FACT_VIEW_DESCRIPTION_TAG),
     )
 }
 
@@ -78,7 +89,9 @@ fun LengthView(length: Int) {
         ) {
             Text(
                 text = stringResource(id = R.string.lbl_length, length.toString()),
-                modifier = Modifier.align(Alignment.CenterEnd)
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .testTag(LENGTH_VIEW_TAG)
             )
         }
     }
@@ -86,8 +99,11 @@ fun LengthView(length: Int) {
 
 @Composable
 fun UpdateFactButton(onClick: (Unit) -> Unit) {
-    Button(onClick = { onClick(Unit) }) {
-        Text(text = stringResource(id = R.string.update_fact))
+    Button(onClick = { onClick(Unit) }, modifier = Modifier.testTag(UPDATE_FACT_BUTTON_TAG)) {
+        Text(
+            text = stringResource(id = R.string.update_fact),
+            modifier = Modifier.testTag(UPDATE_FACT_LABEL_TAG)
+        )
     }
 }
 

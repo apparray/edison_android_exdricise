@@ -12,15 +12,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.APP_TOOLBAR_BACKGROUND_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.APP_TOOLBAR_TITLE_TAG
 import jp.speakbuddy.edisonandroidexercise.R
 
 @Composable
 fun AppToolBar() {
     Surface(
-        shadowElevation = 8.dp
+        shadowElevation = 8.dp,
+        modifier = Modifier.testTag(APP_TOOLBAR_BACKGROUND_TAG)
     ) {
         Row(
             Modifier
@@ -36,7 +40,8 @@ fun AppToolBar() {
             Text(
                 text = stringResource(id = R.string.cats_facts),
                 style = MaterialTheme.typography.titleLarge,
-                color = Color.White
+                color = Color.White,
+                modifier = Modifier.testTag(APP_TOOLBAR_TITLE_TAG)
             )
         }
     }
