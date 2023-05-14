@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -22,7 +23,7 @@ import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 import org.koin.androidx.compose.getViewModel
 
 @Composable
-fun FactScreen() {
+fun FactScreen(paddingValues: PaddingValues) {
     val viewModel: FactViewModel = getViewModel()
     val fact = viewModel.fact.observeAsState()
     val length = viewModel.length.observeAsState()
@@ -31,7 +32,7 @@ fun FactScreen() {
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(16.dp),
+            .padding(paddingValues),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
             space = 16.dp,
@@ -62,16 +63,19 @@ fun FactView(fact: String) {
 
     Text(
         text = fact,
-        style = MaterialTheme.typography.bodyLarge
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.padding(horizontal = 16.dp)
     )
 }
 
 @Composable
 fun LengthView(length: Int) {
     if (length >= 100) {
-        Box(modifier = Modifier
-            .fillMaxWidth()
-            .padding(end = 16.dp)) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(end = 16.dp)
+        ) {
             Text(
                 text = stringResource(id = R.string.lbl_length, length.toString()),
                 modifier = Modifier.align(Alignment.CenterEnd)

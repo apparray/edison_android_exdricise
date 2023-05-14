@@ -3,24 +3,22 @@ package jp.speakbuddy.edisonandroidexercise
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import jp.speakbuddy.edisonandroidexercise.ui.fact.FactScreen
 import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
+import jp.speakbuddy.edisonandroidexercise.ui.toolbar.AppToolBar
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             EdisonAndroidExerciseTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    FactScreen()
+                Scaffold(topBar = {
+                    AppToolBar()
+                }) { paddingValues ->
+                    FactScreen(paddingValues)
                 }
             }
         }
