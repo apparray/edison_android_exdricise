@@ -1,6 +1,6 @@
-package jp.speakbuddy.edisonandroidexercise.network
+package jp.speakbuddy.edisonandroidexercise.data.network
 
-import jp.speakbuddy.edisonandroidexercise.network.view_data.Fact
+import jp.speakbuddy.edisonandroidexercise.data.network.view_data.Fact
 
 sealed class FactResponse {
     data class Success(val factResponse: Fact) : FactResponse()

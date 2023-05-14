@@ -1,7 +1,7 @@
 package jp.speakbuddy.edisonandroidexercise.repository
 
-import jp.speakbuddy.edisonandroidexercise.network.FactResponse
-import jp.speakbuddy.edisonandroidexercise.network.api.FactAPI
+import jp.speakbuddy.edisonandroidexercise.data.network.FactResponse
+import jp.speakbuddy.edisonandroidexercise.data.network.api.FactAPI
 
 class FactRepository(private val factAPI: FactAPI) {
 

@@ -1,6 +1,8 @@
 package jp.speakbuddy.edisonandroidexercise
 
 import android.app.Application
+import jp.speakbuddy.edisonandroidexercise.di.dataStore
+import jp.speakbuddy.edisonandroidexercise.di.dispatcherModule
 import jp.speakbuddy.edisonandroidexercise.di.repositoryModule
 import jp.speakbuddy.edisonandroidexercise.di.retrofitModule
 import jp.speakbuddy.edisonandroidexercise.di.viewModelModule
@@ -18,7 +20,9 @@ class EdisonAndroidExerciseApplication : Application() {
             modules(
                 retrofitModule,
                 repositoryModule,
-                viewModelModule
+                viewModelModule,
+                dataStore,
+                dispatcherModule
             )
         }
     }

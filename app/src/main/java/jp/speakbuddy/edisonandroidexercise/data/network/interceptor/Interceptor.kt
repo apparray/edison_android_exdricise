@@ -1,4 +1,4 @@
-package jp.speakbuddy.edisonandroidexercise.network.interceptor
+package jp.speakbuddy.edisonandroidexercise.data.network.interceptor
 
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
