@@ -1,0 +1,65 @@
+[versions]
+okhttp_version = "5.0.0-alpha.5"
+retrofit2_version = "2.9.0"
+core_testing_version = "2.2.0"
+mockk_version = "1.13.5"
+compose_version = "1.4.3"
+datastore_version = "1.0.0"
+
+
+[libraries]
+okhttp_library = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp_version" }
+okhttp_interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp_version" }
+
+retrofir2_library = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit2_version" }
+retrofir2_converter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2_version" }
+
+coreTesting = { module = "androidx.arch.core:core-testing", version.ref = "core_testing_version" }
+androidCoreTesting = { module = "androidx.arch.core:core-testing", version.ref = "core_testing_version" }
+
+mockk = { module = "io.mockk:mockk", version.ref = "mockk_version" }
+androidMockk = { module = "io.mockk:mockk-android", version.ref = "mockk_version" }
+
+timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
+
+koin = { module = "io.insert-koin:koin-androidx-compose", version = "3.4.4" }
+
+liveData = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "compose_version" }
+
+uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose_version" }
+
+uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose_version" }
+
+junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose_version" }
+
+espresso = { module = "androidx.test.espresso:espresso-core", version = "3.5.1" }
+
+extJunit = { module = "androidx.test.ext:junit", version = "1.1.5" }
+
+junit = { module = "junit:junit", version = "4.13.2" }
+
+retrofit2Serialization = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version = "0.8.0" }
+
+kotlinSerialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.5.0-RC" }
+
+protobufLite = { module = "com.google.protobuf:protobuf-kotlin-lite", version = "3.21.12" }
+
+datastore_library = { module = "androidx.datastore:datastore", version.ref = "datastore_version" }
+datastore_preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore_version" }
+
+material = { module = "androidx.compose.material3:material3", version = "1.1.0" }
+
+compose_ui = { module = "androidx.compose.ui:ui", version.ref = "compose_version" }
+compose_preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose_version" }
+
+activityCompose = { module = "androidx.activity:activity-compose", version = "1.7.1" }
+
+lifeCycleRunTime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.6.1" }
+
+core = { module = "androidx.core:core-ktx", version = "1.10.1" }
+
+[bundles]
+okhttp = ["okhttp.library", "okhttp.interceptor"]
+retrofit2 = ["retrofir2.library", "retrofir2.converter"]
+datastore =["datastore.library", "datastore.preferences"]
+compose = ["compose.ui", "compose.preview"]

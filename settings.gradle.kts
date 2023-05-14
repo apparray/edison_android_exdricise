@@ -11,6 +11,11 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("libs") {
+            from(files("${rootDir.path}/gradle/libraries.versions.toml"))
+        }
+    }
 }
 rootProject.name = "edison_android_exercise"
 

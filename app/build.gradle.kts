@@ -63,49 +63,45 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.compose.ui:ui:1.3.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.3")
-    implementation("androidx.compose.material3:material3:1.0.1")
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation("androidx.datastore:datastore:1.0.0")
-    implementation("com.google.protobuf:protobuf-kotlin-lite:3.21.12")
+    implementation(libs.core)
+    implementation(libs.lifeCycleRunTime)
+    implementation(libs.activityCompose)
+    implementation(libs.bundles.compose)
+    implementation(libs.material)
+    implementation(libs.bundles.datastore)
+    implementation(libs.protobufLite)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
+    implementation(libs.kotlinSerialization)
+    implementation(libs.retrofit2Serialization)
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.4.3")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.4.3")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.4.3")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.extJunit)
+    androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.junit4)
+    debugImplementation(libs.uiTooling)
+    debugImplementation(libs.uiTestManifest)
 
     //Compose live data
-    implementation("androidx.compose.runtime:runtime-livedata:1.4.3")
+    implementation(libs.liveData)
 
     //Koin for dependency injection
-    implementation("io.insert-koin:koin-androidx-compose:3.4.4")
+    implementation(libs.koin)
 
     //Timber for safe logging
-    implementation("com.jakewharton.timber:timber:5.0.1")
+    implementation(libs.timber)
 
     // Okhttp3 interceptor
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.5")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.5")
+    implementation(libs.bundles.okhttp)
 
     // Retrofit2
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.bundles.retrofit2)
 
     // Core Testing
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation(libs.coreTesting)
+    androidTestImplementation(libs.androidCoreTesting)
 
     // Mockk
-    testImplementation("io.mockk:mockk:1.13.5")
-    debugImplementation("io.mockk:mockk-android:1.13.5")
+    testImplementation(libs.mockk)
+    debugImplementation(libs.androidMockk)
 
 }
