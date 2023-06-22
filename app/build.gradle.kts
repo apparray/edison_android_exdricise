@@ -100,6 +100,18 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.3.3")
     debugImplementation("androidx.compose.ui:ui-tooling:1.3.3")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.3")
+
+    implementation ("androidx.compose.runtime:runtime-livedata:1.4.3")
+
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    testImplementation ("org.mockito:mockito-core:5.4.0")
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation ("org.mockito:mockito-inline:3.12.4")
+
+    testImplementation ("io.mockk:mockk:1.13.5")
+
+    androidTestImplementation ("org.mockito:mockito-core:+")
+    androidTestImplementation ("org.mockito:mockito-android:+")
 }
 
 kapt {
