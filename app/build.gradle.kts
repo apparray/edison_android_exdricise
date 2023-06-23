@@ -88,6 +88,9 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.44.2")
     implementation("com.google.protobuf:protobuf-kotlin-lite:3.21.12")
 
+    implementation (project(":data"))
+    implementation (project(":domain"))
+
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
 
@@ -102,6 +105,13 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.3.3")
 
     implementation ("androidx.compose.runtime:runtime-livedata:1.4.3")
+
+    implementation ("com.google.android.material:material:1.5.0")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
     testImplementation ("org.mockito:mockito-core:5.4.0")

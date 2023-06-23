@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Edison Android Exercise</string>
+    <string name="toast_error">Error</string>
+    <string name="fact">Fact</string>
+    <string name="multiple_cats">Multiple cats!!</string>
+    <string name="empty">\"\"</string>
+    <string name="update_fact">Update fact</string>
+    <string name="facts_app">Fact App</string>
 </resources>
