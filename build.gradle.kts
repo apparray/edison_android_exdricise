@@ -1,10 +1,10 @@
+@file:Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application") version "7.4.1" apply false
-    id("com.android.library") version "7.4.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.8.10" apply false
-    id("com.google.dagger.hilt.android") version "2.44.2" apply false
-    id("com.google.protobuf") version "0.8.19" apply false
-
-    kotlin("jvm") version "1.8.10"
-    kotlin("plugin.serialization") version "1.8.10"
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.kotlinAndroid) apply false
+    alias(libs.plugins.hiltPlugin) apply false
+    alias(libs.plugins.protobufPlugin) apply false
+    alias(libs.plugins.serilizationPlugin)
+    alias(libs.plugins.jvmPlugin)
 }
