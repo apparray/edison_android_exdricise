@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 rootProject.name = "edison_android_exercise"
 
 include(":app")
+include(":common")
+include(":presentation")
+include(":network")
+include(":domain")
+include(":data")
