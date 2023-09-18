@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.serilizationPlugin)
 }
 
 android {
@@ -43,4 +44,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    implementation(libs.kotlin.serialization.json)
+
+    // Dagger - Hilt
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.compiler)
 }

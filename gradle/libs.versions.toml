@@ -17,6 +17,7 @@ kotlinx-serialization-json = "1.5.0-RC"
 retrofit = "2.9.0"
 okhttp = "4.10.0"
 retrofit-serialization-converter = "0.8.0"
+retrofit-moshi-converter = "2.9.0"
 serializationPlugin = "1.8.10"
 jvmPlugin = "1.8.10"
 junit = "4.13.2"
@@ -34,6 +35,8 @@ versionName = "0.0.1"
 appcompat = "1.6.1"
 material = "1.9.0"
 
+moshi = "1.12.0"
+
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -49,8 +52,12 @@ dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compi
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf-kotlin-lite" }
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp3-loggin-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit-serialization-converter" }
+moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+moshi-converter = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit-moshi-converter" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "ui-test-junit4" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }

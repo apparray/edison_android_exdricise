@@ -38,6 +38,21 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.moshi)
+    implementation(libs.moshi.converter)
+
+    // Okhttp
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.loggin.interceptor)
+
+    // Dagger - Hilt
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.compiler)
+
+
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":common")))
     testImplementation(libs.junit)
