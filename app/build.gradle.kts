@@ -85,6 +85,7 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.datastore)
     implementation(libs.dagger.hilt.android)
+    implementation(project(mapOf("path" to ":common")))
 
     kapt(libs.dagger.hilt.compiler)
 
