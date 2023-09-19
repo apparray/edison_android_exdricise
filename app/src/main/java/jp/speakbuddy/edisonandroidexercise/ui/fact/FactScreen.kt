@@ -17,8 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.presentation.fact.FactContract
-import com.example.presentation.fact.FactViewModel
+import com.example.presentation.viewmodel.fact.FactContract
+import com.example.presentation.viewmodel.fact.FactViewModel
 
 
 @Composable

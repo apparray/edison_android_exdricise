@@ -1,12 +1,12 @@
-package com.example.presentation.fact
+package com.example.presentation.viewmodel.fact
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common.utils.wrapper.DataResult
 import com.example.domain.usecase.fact.GetFactUseCase
-import com.example.presentation.fact.FactContract.FactViewEffect
-import com.example.presentation.fact.FactContract.FactViewState
+import com.example.presentation.viewmodel.fact.FactContract.FactViewEffect
+import com.example.presentation.viewmodel.fact.FactContract.FactViewState
 import com.example.presentation.mapper.FactDomainPresentationMapper
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

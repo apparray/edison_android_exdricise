@@ -35,8 +35,6 @@ abstract class NetworkModule {
         @Singleton
         fun provideFactApi(builder: Retrofit.Builder): FactApiService {
             return builder
-                .baseUrl(NetworkConstants.BASE_ENDPOINT)
-                .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .build()
                 .create(FactApiService::class.java)
         }

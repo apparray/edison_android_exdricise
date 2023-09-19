@@ -48,6 +48,7 @@ dependencies {
     // Okhttp
     implementation(libs.okhttp3)
     implementation(libs.okhttp3.loggin.interceptor)
+    implementation(libs.okhttp3.mock.webserver)
 
     // Dagger - Hilt
     implementation(libs.dagger.hilt.android)
@@ -56,7 +57,9 @@ dependencies {
 
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":common")))
+
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 }

@@ -1,4 +1,4 @@
-package com.example.presentation.fact
+package com.example.presentation.viewmodel.fact
 
 class FactContract {
     sealed class FactEvent {
