@@ -10,6 +10,7 @@ material3 = "1.0.1"
 datastoreCore = "1.0.0"
 androidxDataStore = "1.0.0"
 daggerHiltAndroid = "2.44.2"
+daggerHiltNavigationCompose = "1.0.0"
 protobuf-kotlin-lite = "3.21.12"
 protobufPlugin = "0.8.19"
 serialization = "1.8.10"
@@ -41,6 +42,7 @@ moshi = "1.12.0"
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref= "ui-tooling-preview"}
@@ -49,6 +51,7 @@ datastore-preferences = { group = "androidx.datastore", name = "datastore-prefer
 datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastoreCore" }
 dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "daggerHiltAndroid" }
 dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "daggerHiltAndroid" }
+dagger-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "daggerHiltNavigationCompose" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf-kotlin-lite" }
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }

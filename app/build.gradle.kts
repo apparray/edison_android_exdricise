@@ -85,8 +85,15 @@ dependencies {
     implementation(libs.datastore.preferences)
     implementation(libs.datastore)
     implementation(libs.dagger.hilt.android)
-    implementation(project(mapOf("path" to ":common")))
 
+    implementation(project(mapOf("path" to ":common")))
+    implementation(project(mapOf("path" to ":presentation")))
+    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":network")))
+    implementation(project(mapOf("path" to ":domain")))
+
+    implementation(libs.dagger.hilt.navigation.compose)
+    implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
     implementation(libs.protobuf.kotlin.lite)
