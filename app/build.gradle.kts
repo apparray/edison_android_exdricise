@@ -87,29 +87,33 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.dagger.hilt.android)
 
-    implementation(project(mapOf("path" to ":common")))
-    implementation(project(mapOf("path" to ":presentation")))
-    implementation(project(mapOf("path" to ":data")))
-    implementation(project(mapOf("path" to ":network")))
-    implementation(project(mapOf("path" to ":domain")))
-
+    // Dagger - Hilt
     implementation(libs.dagger.hilt.navigation.compose)
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
     implementation(libs.protobuf.kotlin.lite)
 
+    // HTTP
     implementation(libs.kotlin.serialization.json)
     implementation(libs.okhttp3)
     implementation(libs.retrofit)
     implementation(libs.retrofit.serialization.converter)
 
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    // dependencies
+    implementation(project(mapOf("path" to ":common")))
+    implementation(project(mapOf("path" to ":presentation")))
+    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":network")))
+    implementation(project(mapOf("path" to ":domain")))
 }
 
 kapt {

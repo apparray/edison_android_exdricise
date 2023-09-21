@@ -54,12 +54,13 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
-
-    implementation(project(mapOf("path" to ":data")))
-    implementation(project(mapOf("path" to ":common")))
-
+    // Test
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // dependencies
+    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":common")))
 }

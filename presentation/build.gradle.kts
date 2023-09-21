@@ -39,11 +39,6 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(project(mapOf("path" to ":domain")))
-    implementation(project(mapOf("path" to ":common")))
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 
     // Lifecycles
     implementation(libs.lifecycle.viewmodel.ktx)
@@ -56,5 +51,12 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+
+    // dependencies
+    implementation(project(mapOf("path" to ":domain")))
+    implementation(project(mapOf("path" to ":common")))
 
 }

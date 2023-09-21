@@ -39,8 +39,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.retrofit)
+
+    // Dagger - Hilt
     implementation(libs.dagger.hilt.android)
 
+    // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
