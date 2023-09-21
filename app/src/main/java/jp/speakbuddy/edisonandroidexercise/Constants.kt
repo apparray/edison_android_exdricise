@@ -14,5 +14,7 @@ object Constants {
 
         const val UPDATE_FACT_BUTTON_TAG = "update_fact_button"
         const val UPDATE_FACT_LABEL_TAG = "update_fact_label"
+
+        const val LOADING_INDICATOR_VIEW = "loading_indicator_view"
     }
 }

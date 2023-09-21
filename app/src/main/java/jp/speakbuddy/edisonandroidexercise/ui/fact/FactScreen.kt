@@ -27,6 +27,7 @@ import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_DESCRIPTION_
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_MANY_CATS_TAG
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.FACT_VIEW_TITLE_TAG
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.LENGTH_VIEW_TAG
+import jp.speakbuddy.edisonandroidexercise.Constants.Test.LOADING_INDICATOR_VIEW
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_BUTTON_TAG
 import jp.speakbuddy.edisonandroidexercise.Constants.Test.UPDATE_FACT_LABEL_TAG
 import jp.speakbuddy.edisonandroidexercise.R
@@ -51,20 +52,21 @@ fun FactScreen(
             alignment = Alignment.CenterVertically
         )
     ) {
-        if (viewState.loading) {
-            LoadingIndicator()
-        } else {
-            FactView(state = viewState)
-            LengthView(state = viewState)
-            UpdateFactButton(onClick = {
-                viewModel.setEvent(FactContract.FactEvent.RefreshData)
-            })
-        }
+
+        LoadingIndicator(state = viewState)
+        FactView(state = viewState)
+        LengthView(state = viewState)
+        UpdateFactButton(state = viewState, onClick = {
+            viewModel.setEvent(FactContract.FactEvent.RefreshData)
+        })
     }
 }
 
 @Composable
 fun FactView(state: FactContract.FactViewState) {
+    if (state.loading) {
+        return
+    }
     Text(
         text = stringResource(id = R.string.fact),
         style = MaterialTheme.typography.titleLarge,
@@ -90,6 +92,9 @@ fun FactView(state: FactContract.FactViewState) {
 
 @Composable
 fun LengthView(state: FactContract.FactViewState) {
+    if (state.loading) {
+        return
+    }
     if (state.showHintCats && !state.retry) {
         Box(
             modifier = Modifier
@@ -107,7 +112,10 @@ fun LengthView(state: FactContract.FactViewState) {
 }
 
 @Composable
-fun UpdateFactButton(onClick: (Unit) -> Unit) {
+fun UpdateFactButton(state: FactContract.FactViewState, onClick: (Unit) -> Unit) {
+    if (state.loading) {
+        return
+    }
     Button(onClick = { onClick(Unit) }, modifier = Modifier.testTag(UPDATE_FACT_BUTTON_TAG)) {
         Text(
             text = stringResource(id = R.string.update_fact),
@@ -118,9 +126,12 @@ fun UpdateFactButton(onClick: (Unit) -> Unit) {
 
 
 @Composable
-fun LoadingIndicator(modifier: Modifier = Modifier) {
+fun LoadingIndicator(state: FactContract.FactViewState, modifier: Modifier = Modifier) {
+    if (!state.loading) {
+        return
+    }
     Column(
-        modifier = modifier,
+        modifier = modifier.testTag(LOADING_INDICATOR_VIEW),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
