@@ -2,15 +2,16 @@ package com.example.presentation.viewmodel.fact
 
 class FactContract {
     sealed class FactEvent {
-        object Initialization : FactEvent()
         object RefreshData : FactEvent()
-    }
-
-    sealed class FactViewEffect {
-        object ShowFact : FactViewEffect()
     }
 
     data class FactViewState(
         val loading: Boolean = false,
+        val retry: Boolean = false,
+        val errorMsg: Int = 0,
+        val fact: String = "",
+        val length: String = "",
+        val showHintCats: Boolean = false,
+        val showHintLength: Boolean = false,
     )
 }

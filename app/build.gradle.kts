@@ -79,6 +79,7 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.ui)
     implementation(libs.ui.tooling)
     implementation(libs.material3)

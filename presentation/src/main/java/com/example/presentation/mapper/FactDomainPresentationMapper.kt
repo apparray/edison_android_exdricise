@@ -14,7 +14,9 @@ class FactDomainPresentationMapper @Inject constructor() :
     override fun from(i: FactDomainModel): FactPresentationModel {
         return FactPresentationModel(
             fact = i.fact,
-            length = i.length
+            length = i.length,
+            showHintCats = i.fact.contains("cats", ignoreCase = true),
+            showHintLength = i.length > 100
         )
     }
 
