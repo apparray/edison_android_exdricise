@@ -1,4 +1,4 @@
-package jp.speakbuddy.edisonandroidexercise.ui.fact
+package jp.speakbuddy.edisonandroidexercise.fact.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -6,14 +6,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,7 +17,8 @@ import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 
 @Composable
 fun FactScreen(
-    viewModel: FactViewModel
+    state: FactUiState,
+    onEvent: (FactUiEvent) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -35,20 +31,33 @@ fun FactScreen(
             alignment = Alignment.CenterVertically
         )
     ) {
-        var fact by remember { mutableStateOf("") }
-
         Text(
             text = "Fact",
             style = MaterialTheme.typography.titleLarge
         )
 
+        if (state.showMultipleCats) {
+            Text(
+                text = "Multiple cats!!",
+                style = MaterialTheme.typography.bodyLarge,
+            )
+        }
+
         Text(
-            text = fact,
+            text = state.fact,
             style = MaterialTheme.typography.bodyLarge
         )
 
+        state.length?.let {
+            Text(
+                text = "Length: $it",
+                modifier = Modifier.align(Alignment.End),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+
         val onClick = {
-            fact = viewModel.updateFact { print("done") }
+            onEvent(FactUiEvent.UpdateFact { println("done") })
         }
 
         Button(onClick = onClick) {
@@ -61,6 +70,13 @@ fun FactScreen(
 @Composable
 private fun FactScreenPreview() {
     EdisonAndroidExerciseTheme {
-        FactScreen(viewModel = FactViewModel())
+        FactScreen(
+            state = FactUiState(
+                fact = "Cat families usually play best in even numbers. cats and kittens should be acquired in pairs whenever possible",
+                length = "111",
+                showMultipleCats = true
+            ),
+            onEvent = { }
+        )
     }
 }
