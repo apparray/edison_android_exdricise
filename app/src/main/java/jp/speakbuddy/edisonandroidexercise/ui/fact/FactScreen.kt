@@ -6,19 +6,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import jp.speakbuddy.edisonandroidexercise.ui.theme.EdisonAndroidExerciseTheme
 
 @Composable
 fun FactScreen(
@@ -35,32 +29,35 @@ fun FactScreen(
             alignment = Alignment.CenterVertically
         )
     ) {
-        var fact by remember { mutableStateOf("") }
-
         Text(
             text = "Fact",
             style = MaterialTheme.typography.titleLarge
         )
 
+        if (viewModel.factState.value.isMultipleCats) {
+            Text(text = "Multiple cats!!", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
+        }
+
         Text(
-            text = fact,
+            text = viewModel.factState.value.fact,
             style = MaterialTheme.typography.bodyLarge
         )
 
+        if (viewModel.factState.value.isShowingLength) {
+            val length = viewModel.factState.value.length.toString()
+            Text(
+                text = "Length: $length",
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold
+            )
+        }
+
         val onClick = {
-            fact = viewModel.updateFact { print("done") }
+            viewModel.updateFact()
         }
 
         Button(onClick = onClick) {
             Text(text = "Update fact")
         }
-    }
-}
-
-@Preview
-@Composable
-private fun FactScreenPreview() {
-    EdisonAndroidExerciseTheme {
-        FactScreen(viewModel = FactViewModel())
     }
 }

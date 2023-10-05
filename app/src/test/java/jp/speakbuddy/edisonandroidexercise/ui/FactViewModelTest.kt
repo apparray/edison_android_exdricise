@@ -5,17 +5,13 @@ import org.junit.Test
 
 class FactViewModelTest {
 
-    private val viewModel = FactViewModel()
+    private val viewModel = FactViewModel(GetFactStateUseCaseMock())
 
     @Test
     fun updateFact() {
-        var loading = true
-        val initialFact = "initial"
-        var fact = initialFact
-
-        fact = viewModel.updateFact { loading = false }
-
-        assert(!loading)
+        val initialFact = viewModel.factState.value.fact
+        viewModel.updateFact()
+        val fact: String = viewModel.factState.value.fact
         assert(fact != initialFact)
     }
 }
